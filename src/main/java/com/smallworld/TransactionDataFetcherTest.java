@@ -18,27 +18,21 @@ public class TransactionDataFetcherTest {
         Transaction transaction2 = Mockito.mock(Transaction.class);
         Transaction transaction3 = Mockito.mock(Transaction.class);
 
-        // Set up the behavior of the mocked objects
         when(transaction1.getAmount()).thenReturn(500.0);
         when(transaction2.getAmount()).thenReturn(300.0);
         when(transaction3.getAmount()).thenReturn(700.0);
 
-        // Create a list of mock transactions
         List<Transaction> transactions = Arrays.asList(transaction1, transaction2, transaction3);
 
-        // Create an instance of TransactionDataFetcher with the list of mock transactions
         TransactionDataFetcher dataFetcher = new TransactionDataFetcher(transactions);
 
-        // Call the method under test
         double totalAmount = dataFetcher.getTotalTransactionAmount();
 
-        // Assert the result with a delta value of 0.001 (acceptable precision error for double values)
         assertEquals(1500.0, totalAmount, 0.001);
     }
 
     @Test
     public void test_GetTotalTransactionAmountSentBy_ShouldReturnTotalAmount() {
-        // Create a list of mock Transaction objects
         Transaction transaction1 = mock(Transaction.class);
         when(transaction1.getSenderFullName()).thenReturn("John Doe");
         when(transaction1.getAmount()).thenReturn(100.0);
@@ -53,10 +47,8 @@ public class TransactionDataFetcherTest {
 
         List<Transaction> transactions = Arrays.asList(transaction1, transaction2, transaction3);
 
-        // Create the TransactionDataFetcher instance with the mocked list of transactions
         TransactionDataFetcher dataFetcher = new TransactionDataFetcher(transactions);
 
-        // Test the method
         double totalAmount = dataFetcher.getTotalTransactionAmountSentBy("John Doe");
         assertEquals(400.0, totalAmount, 0.001); // 100.0 + 300.0 = 400.0
     }
