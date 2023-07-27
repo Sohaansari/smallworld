@@ -4,7 +4,6 @@ public class Transaction {
     // Represent your transaction data here.
     private int mtn;
     private double amount;
-
     private String senderFullName;
     private int senderAge;
     private String beneficiaryFullName;
@@ -51,7 +50,6 @@ public class Transaction {
         return issueMessage;
     }
 
-
     @Override
     public String toString() {
         return "Transaction mtn: " + mtn +
@@ -64,6 +62,4 @@ public class Transaction {
                 ", issueSolved: " + issueSolved +
                 ", IssueMessage: " + issueMessage;
     }
-
-
 }
