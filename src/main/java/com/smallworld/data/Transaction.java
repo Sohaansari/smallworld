@@ -13,7 +13,6 @@ public class Transaction {
     private String issueMessage;
 
     //adding only getters
-
     public int getMtn() {
         return mtn;
     }
